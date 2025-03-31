@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nightclub - Coming Soon</title>
-    
     <style>
         /* Reset and basic styles */
         * {
@@ -72,16 +71,52 @@
             margin: 20px 0;
         }
 
-        /* About Section Styling */
-        #about, #roadmap {
-            margin-top: 40px;
+        /* Modal (Popup) Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #222;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
             color: white;
         }
 
-        h3 {
+        .modal-content h3 {
             color: #00b6ff;
-            font-size: 1.5rem;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .modal-content p {
+            font-size: 1rem;
+            color: #ddd;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
         }
 
         /* Animating the button hover */
@@ -110,30 +145,74 @@
     <button class="btn" onclick="window.location.href='mailto:rvoinc@webname.com'">Contact Us</button>
     
     <!-- About Us Button -->
-    <button class="btn" onclick="window.location.href='#about'">About Us</button>
+    <button class="btn" onclick="openModal('aboutModal')">About Us</button>
     
     <!-- Roadmap Button -->
-    <button class="btn" onclick="window.location.href='#roadmap'">Roadmap</button>
+    <button class="btn" onclick="openModal('roadmapModal')">Roadmap</button>
 
-    <!-- About Section -->
-    <div id="about">
-        <h3>About Us</h3>
-        <p>We’re building something better than what you've seen. Stay tuned as we aim to create a new platform to disrupt the way we interact online. Keep your eyes peeled for big updates!</p>
+    <!-- About Us Modal -->
+    <div id="aboutModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('aboutModal')">&times;</span>
+            <h3>About Us</h3>
+            <p>We’re building something better than what you've seen. Stay tuned as we aim to create a new platform to disrupt the way we interact online. Keep your eyes peeled for big updates!</p>
+        </div>
     </div>
 
-    <!-- Roadmap Section -->
-    <div id="roadmap">
-        <h3>Project Roadmap</h3>
-        <ul>
-            <li><strong>Phase 1:</strong> Concept and design.</li>
-            <li><strong>Phase 2:</strong> MVP launch.</li>
-            <li><strong>Phase 3:</strong> User testing and feedback.</li>
-            <li><strong>Phase 4:</strong> Continuous improvements and updates.</li>
-        </ul>
+    <!-- Roadmap Modal -->
+    <div id="roadmapModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('roadmapModal')">&times;</span>
+            <h3>Project Roadmap</h3>
+            <ul>
+                <li><strong>Phase 1:</strong> Concept and design.</li>
+                <li><strong>Phase 2:</strong> MVP launch.</li>
+                <li><strong>Phase 3:</strong> User testing and feedback.</li>
+                <li><strong>Phase 4:</strong> Continuous improvements and updates.</li>
+            </ul>
+        </div>
     </div>
 
-    <!-- Link to external JavaScript file -->
-    <script src="script.js"></script>
+    <!-- Countdown Timer Script -->
+    <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date("December 31, 2025 23:59:59").getTime();
+
+        // Update the countdown every 1 second
+        var x = setInterval(function() {
+
+            // Get the current date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes, and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Output the result in the element with id="countdown"
+            document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+            + minutes + "m " + seconds + "s ";
+
+            // If the countdown is finished, write some text
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+
+        // Functions to open and close modals
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+    </script>
 
 </body>
 </html>
