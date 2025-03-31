@@ -1,6 +1,6 @@
 // Countdown Timer
 const countdownElement = document.getElementById("countdown");
-const countdownDate = new Date("2025-12-31T00:00:00").getTime();
+const countdownDate = new Date("2026-12-31T00:00:00").getTime();
 
 const countdownInterval = setInterval(function () {
     const now = new Date().getTime();
@@ -8,7 +8,7 @@ const countdownInterval = setInterval(function () {
 
     if (timeRemaining <= 0) {
         clearInterval(countdownInterval);
-        countdownElement.innerHTML = "Event Started!";
+        countdownElement.innerHTML = "We Are Live!";
     } else {
         const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
