@@ -1,41 +1,37 @@
-// Modal functionality
-function openModal(modalId) {
-    document.getElementById(modalId).style.display = 'block';
-}
-
-function closeModal(modalId) {
-    document.getElementById(modalId).style.display = 'none';
-}
-
 // Countdown Timer
-const endDate = new Date("2025-05-01T00:00:00Z");
+// Countdown Timer
+const countdownElement = document.getElementById("countdown");
+const countdownDate = new Date("2025-12-31T00:00:00").getTime();
 
-function updateCountdown() {
-    const now = new Date();
-    const timeRemaining = endDate - now;
+const countdownInterval = setInterval(function () {
+    const now = new Date().getTime();
+    const timeRemaining = countdownDate - now;
 
     if (timeRemaining <= 0) {
-        document.getElementById("countdown").innerHTML = "The wait is over!";
-        return;
+        clearInterval(countdownInterval);
+        countdownElement.innerHTML = "Event Started!";
+    } else {
+        const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+        countdownElement.innerHTML = `${hours}:${minutes}:${seconds}`;
     }
+}, 1000);
 
-    const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-
-    document.getElementById("countdown").innerHTML = `${hours}:${minutes}:${seconds}`;
+// Open Modal
+function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.style.display = "block";
 }
 
-setInterval(updateCountdown, 1000);
-
-// Roadmap Progress Bar
-function updateProgress() {
-    document.getElementById("phase1Progress").style.width = "50%";
-    document.getElementById("phase2Progress").style.width = "30%";
-    document.getElementById("phase3Progress").style.width = "10%";
-    document.getElementById("phase4Progress").style.width = "0%";
-    document.getElementById("phase5Progress").style.width = "0%";
-    document.getElementById("phase6Progress").style.width = "0%";
+// Close Modal
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.style.display = "none";
 }
 
-window.onload = updateProgress;
+// Set roadmap progress
+document.getElementById('phase1Progress').style.width = '40%';
+document.getElementById('phase2Progress').style.width = '20%';
+document.getElementById('phase3Progress').style.width = '10%';
+document.getElementById('phase4Progress').style.width = '0%';
