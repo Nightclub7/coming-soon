@@ -1,5 +1,4 @@
 // Countdown Timer
-// Countdown Timer
 const countdownElement = document.getElementById("countdown");
 const countdownDate = new Date("2025-12-31T00:00:00").getTime();
 
