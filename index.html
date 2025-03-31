@@ -4,25 +4,125 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nightclub - Coming Soon</title>
-    <link rel="stylesheet" href="style.css"> <!-- Link to the external CSS file -->
+    
+    <style>
+        /* Reset and basic styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #111;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        /* Neon Gradient Effect for Main Heading */
+        h1 {
+            font-size: 4rem;
+            background: linear-gradient(90deg, #9b00ff, #00b6ff);
+            color: transparent;
+            background-clip: text;
+            animation: neon 1.5s ease-in-out infinite alternate;
+        }
+
+        /* Neon Animation for Text */
+        @keyframes neon {
+            0% {
+                text-shadow: 0 0 5px #9b00ff, 0 0 10px #9b00ff, 0 0 20px #9b00ff, 0 0 40px #00b6ff, 0 0 60px #00b6ff;
+            }
+            100% {
+                text-shadow: 0 0 10px #9b00ff, 0 0 20px #9b00ff, 0 0 30px #9b00ff, 0 0 40px #00b6ff, 0 0 50px #00b6ff;
+            }
+        }
+
+        /* Style for buttons */
+        .btn {
+            background-color: #ff007b;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(255, 0, 123, 0.6);
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #ff4d91;
+            box-shadow: 0 0 20px rgba(255, 0, 123, 1);
+        }
+
+        /* Countdown Style */
+        #countdown {
+            font-size: 2rem;
+            color: #00b6ff;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        /* About Section Styling */
+        #about, #roadmap {
+            margin-top: 40px;
+            color: white;
+        }
+
+        h3 {
+            color: #00b6ff;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* Animating the button hover */
+        @keyframes glowButton {
+            0% {
+                text-shadow: 0 0 10px rgba(255, 0, 123, 0.8), 0 0 20px rgba(255, 0, 123, 0.8), 0 0 30px rgba(255, 0, 123, 0.8);
+            }
+            100% {
+                text-shadow: 0 0 10px rgba(255, 0, 123, 1), 0 0 20px rgba(255, 0, 123, 1), 0 0 30px rgba(255, 0, 123, 1);
+            }
+        }
+
+        .btn {
+            animation: glowButton 1.5s infinite alternate;
+        }
+    </style>
 </head>
 <body>
 
     <h1>Nightclub - Coming Soon</h1>
     <p>That app that can't be named for legal reasons... but better!</p>
 
-    <p id="countdown"></p>
+    <div id="countdown"></div> <!-- Countdown element -->
 
+    <!-- Contact Us Button -->
     <button class="btn" onclick="window.location.href='mailto:rvoinc@webname.com'">Contact Us</button>
+    
+    <!-- About Us Button -->
     <button class="btn" onclick="window.location.href='#about'">About Us</button>
+    
+    <!-- Roadmap Button -->
     <button class="btn" onclick="window.location.href='#roadmap'">Roadmap</button>
 
-    <div id="about" style="margin-top: 40px; color: white;">
+    <!-- About Section -->
+    <div id="about">
         <h3>About Us</h3>
         <p>We’re building something better than what you've seen. Stay tuned as we aim to create a new platform to disrupt the way we interact online. Keep your eyes peeled for big updates!</p>
     </div>
 
-    <div id="roadmap" style="margin-top: 40px; color: white;">
+    <!-- Roadmap Section -->
+    <div id="roadmap">
         <h3>Project Roadmap</h3>
         <ul>
             <li><strong>Phase 1:</strong> Concept and design.</li>
@@ -32,7 +132,8 @@
         </ul>
     </div>
 
-    <script src="script.js"></script> <!-- Link to the external JS file -->
+    <!-- Link to external JavaScript file -->
+    <script src="script.js"></script>
 
 </body>
 </html>
