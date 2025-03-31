@@ -97,6 +97,8 @@
             max-width: 700px;
             margin: 10% auto;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            max-height: 80%;
+            overflow-y: auto;
         }
 
         .modal-content h3 {
@@ -167,6 +169,39 @@
             color: #33ccff;
             text-shadow: 0 0 5px #ff1f90, 0 0 10px #33ccff, 0 0 15px #ff1f90;
         }
+
+        /* Contact Us Styles */
+        .contact-us-modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding-top: 50px;
+        }
+
+        .contact-us-modal-content {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 500px;
+            margin: 10% auto;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-us-modal-content h3 {
+            font-size: 2em;
+        }
+
+        .contact-us-info {
+            font-size: 1.2em;
+            color: #ccc;
+        }
     </style>
 </head>
 
@@ -179,6 +214,7 @@
     <div class="btn-container">
         <a href="javascript:void(0)" class="btn" onclick="openModal('aboutModal')">About Us</a>
         <a href="javascript:void(0)" class="btn" onclick="openModal('roadmapModal')">Roadmap</a>
+        <a href="javascript:void(0)" class="btn" onclick="openModal('contactUsModal')">Contact Us</a>
     </div>
 
     <!-- About Us Modal -->
@@ -189,7 +225,7 @@
             <p>Welcome to the future of online interaction! At Nightclub, we are reimagining the way digital communication takes place. We believe the internet should be a place for connection, creativity, and innovation, and we’re building the next-generation platform to make that a reality.</p>
             <p>Our journey began with a vision to create a space where people could communicate in new, exciting ways. We wanted to break free from the constraints of current platforms and provide users with a modern experience that focuses on flexibility, privacy, and user empowerment. From our sleek and futuristic design to cutting-edge features, everything we do is aimed at enhancing your online social experience.</p>
             <p>At Nightclub, we value the importance of community. Our platform is built to be inclusive, where every voice matters. Whether you're part of a gaming group, a hobbyist circle, or just looking to meet new people, our goal is to provide you with an environment that encourages healthy, meaningful interactions.</p>
-            <p>We're also focused on innovation. Our team is passionate about continuously improving the platform by listening to our users and integrating the latest technologies. We’re not just creating a platform; we’re creating a living, evolving space where new ideas thrive. From advanced moderation tools powered by AI to customizable features that allow users to personalize their experience, we are constantly pushing boundaries.</p>
+            <p>We’re also focused on innovation. Our team is passionate about continuously improving the platform by listening to our users and integrating the latest technologies. We’re not just creating a platform; we’re creating a living, evolving space where new ideas thrive. From advanced moderation tools powered by AI to customizable features that allow users to personalize their experience, we are constantly pushing boundaries.</p>
             <p>Nightclub is more than just an app—it’s a movement. A movement toward a better, more connected digital world. A world where every user can feel safe, express themselves freely, and build lasting relationships. Join us as we create something extraordinary. The best is yet to come!</p>
         </div>
     </div>
@@ -234,6 +270,21 @@
             </div>
 
             <p class="roadmap-description">Stay tuned for more exciting updates!</p>
+        </div>
+    </div>
+
+    <!-- Contact Us Modal -->
+    <div id="contactUsModal" class="contact-us-modal">
+        <div class="contact-us-modal-content">
+            <span class="close" onclick="closeModal('contactUsModal')">&times;</span>
+            <h3>Contact Us</h3>
+            <p class="contact-us-info">For any inquiries, you can reach us at:</p>
+            <p class="contact-us-info">Email: <a href="mailto:support@nightclub.com">support@nightclub.com</a></p>
+            <p class="contact-us-info">Phone: +123 456 7890</p>
+            <p class="contact-us-info">Or follow us on social media:</p>
+            <p class="contact-us-info">
+                <a href="#" style="color: #33ccff;">Twitter</a> | <a href="#" style="color: #33ccff;">Instagram</a>
+            </p>
         </div>
     </div>
 
