@@ -182,39 +182,23 @@
     </div>
 
     <!-- About Us Modal -->
-<div id="aboutModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('aboutModal')">&times;</span>
-        <h3>About Us</h3>
-        <p>Welcome to the future of online interaction! At Nightclub, we are reimagining the way digital communication takes place. We believe the internet should be a place for connection, creativity, and innovation, and we’re building the next-generation platform to make that a reality.</p>
-        
-        <p>Our journey began with a vision to create a space where people could communicate in new, exciting ways. We wanted to break free from the constraints of current platforms and provide users with a modern experience that focuses on flexibility, privacy, and user empowerment. From our sleek and futuristic design to cutting-edge features, everything we do is aimed at enhancing your online social experience.</p>
-
-        <p>At Nightclub, we value the importance of community. Our platform is built to be inclusive, where every voice matters. Whether you're part of a gaming group, a hobbyist circle, or just looking to meet new people, our goal is to provide you with an environment that encourages healthy, meaningful interactions.</p>
-
-        <p>We're also focused on innovation. Our team is passionate about continuously improving the platform by listening to our users and integrating the latest technologies. We’re not just creating a platform; we’re creating a living, evolving space where new ideas thrive. From advanced moderation tools powered by AI to customizable features that allow users to personalize their experience, we are constantly pushing boundaries.</p>
-
-        <p>Nightclub is more than just an app—it’s a movement. A movement toward a better, more connected digital world. A world where every user can feel safe, express themselves freely, and build lasting relationships. Join us as we create something extraordinary. The best is yet to come!</p>
-
-        <p><strong>Our Values:</strong></p>
-        <ul>
-            <li><strong>Community First:</strong> We believe in building a supportive, inclusive, and safe space for everyone.</li>
-            <li><strong>Innovation:</strong> We're always looking for ways to improve and push the envelope of what's possible in digital communication.</li>
-            <li><strong>Privacy and Security:</strong> We take your privacy seriously, ensuring your data is safe and you’re in control of your information.</li>
-            <li><strong>Transparency:</strong> We believe in being open with our users about our goals, progress, and challenges.</li>
-        </ul>
-
-        <p>Thank you for being part of our journey. We’re excited to have you with us as we revolutionize the way we connect online.</p>
+    <div id="aboutModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('aboutModal')">&times;</span>
+            <h3>About Us</h3>
+            <p>Welcome to the future of online interaction! At Nightclub, we are reimagining the way digital communication takes place. We believe the internet should be a place for connection, creativity, and innovation, and we’re building the next-generation platform to make that a reality.</p>
+            <p>Our journey began with a vision to create a space where people could communicate in new, exciting ways. We wanted to break free from the constraints of current platforms and provide users with a modern experience that focuses on flexibility, privacy, and user empowerment. From our sleek and futuristic design to cutting-edge features, everything we do is aimed at enhancing your online social experience.</p>
+            <p>At Nightclub, we value the importance of community. Our platform is built to be inclusive, where every voice matters. Whether you're part of a gaming group, a hobbyist circle, or just looking to meet new people, our goal is to provide you with an environment that encourages healthy, meaningful interactions.</p>
+            <p>We're also focused on innovation. Our team is passionate about continuously improving the platform by listening to our users and integrating the latest technologies. We’re not just creating a platform; we’re creating a living, evolving space where new ideas thrive. From advanced moderation tools powered by AI to customizable features that allow users to personalize their experience, we are constantly pushing boundaries.</p>
+            <p>Nightclub is more than just an app—it’s a movement. A movement toward a better, more connected digital world. A world where every user can feel safe, express themselves freely, and build lasting relationships. Join us as we create something extraordinary. The best is yet to come!</p>
+        </div>
     </div>
-</div>
-
 
     <!-- Roadmap Modal -->
     <div id="roadmapModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('roadmapModal')">&times;</span>
             <h3>Project Roadmap</h3>
-
             <p>Our project is designed with continuous growth in mind, bringing new features and expansions as time progresses. Below is our current roadmap, but keep in mind, the journey never ends!</p>
 
             <div class="roadmap-item">
@@ -246,74 +230,14 @@
                 <div class="progress-bar-container">
                     <div class="progress-bar" id="phase4Progress"></div>
                 </div>
-                <p>With our foundation solid, we aim to scale and add international support, bringing new languages and broader accessibility to our platform. Expect server optimizations, multi-language chat areas, and enhanced user accessibility.</p>
+                <p>Our sights are set on reaching users across the globe. We’ll focus on scaling up, improving our infrastructure, and adding multilingual support to ensure a global community.</p>
             </div>
 
-            <div class="roadmap-item">
-                <div class="roadmap-title">Phase 5: Full Feature Integration</div>
-                <div class="progress-bar-container">
-                    <div class="progress-bar" id="phase5Progress"></div>
-                </div>
-                <p>As we reach the final phase, expect all features to come together with integration for premium features, sponsored ads, global servers, and unique rewards. We’ll bring our community to new heights with tools designed to empower users and server owners alike.</p>
-            </div>
-
-            <div class="roadmap-item">
-                <div class="roadmap-title">Ever-Expanding Updates</div>
-                <div class="progress-bar-container">
-                    <div class="progress-bar" id="phase6Progress"></div>
-                </div>
-                <p>This project will continue to expand as new features are developed and user feedback is integrated. The journey is endless, and we’re committed to continuously evolving the platform with exciting features that will be unveiled in the future.</p>
-            </div>
+            <p class="roadmap-description">Stay tuned for more exciting updates!</p>
         </div>
     </div>
 
-    <script>
-        // Modal functionality
-        function openModal(modalId) {
-            document.getElementById(modalId).style.display = 'block';
-        }
-
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
-        }
-
-        // Countdown Timer
-        const endDate = new Date("2025-05-01T00:00:00Z");
-
-        function updateCountdown() {
-            const now = new Date();
-            const timeRemaining = endDate - now;
-
-            if (timeRemaining <= 0) {
-                document.getElementById("countdown").innerHTML = "The wait is over!";
-                return;
-            }
-
-            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-
-            document.getElementById("countdown").innerHTML = `${hours}:${minutes}:${seconds}`;
-        }
-
-        setInterval(updateCountdown, 1000);
-
-        // Roadmap Progress Bar
-        function updateProgress() {
-            document.getElementById("phase1Progress").style.width = "50%";
-            document.getElementById("phase2Progress").style.width = "30%";
-            document.getElementById("phase3Progress").style.width = "10%";
-            document.getElementById("phase4Progress").style.width = "0%";
-            document.getElementById("phase5Progress").style.width = "0%";
-            document.getElementById("phase6Progress").style.width = "0%";
-        }
-
-        window.onload = updateProgress;
-    </script>
-</body>
-
-</html>
-    <!-- Link to external script.js -->
     <script src="script.js"></script>
 </body>
+
 </html>
