@@ -1,21 +1,29 @@
-// Countdown Timer
-const countdownElement = document.getElementById("countdown");
-const countdownDate = new Date("2026-12-31T00:00:00").getTime();
+// Set the target date for the countdown (January 1, 2026)
+const targetDate = new Date("Jan 1, 2026 00:00:00").getTime();
 
-const countdownInterval = setInterval(function () {
+// Function to update the countdown
+function updateCountdown() {
     const now = new Date().getTime();
-    const timeRemaining = countdownDate - now;
+    const distance = targetDate - now;
 
-    if (timeRemaining <= 0) {
-        clearInterval(countdownInterval);
-        countdownElement.innerHTML = "We Are Live!";
-    } else {
-        const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-        countdownElement.innerHTML = `${hours}:${minutes}:${seconds}`;
+    // Calculate time remaining
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Display the time remaining
+    document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+    // If the countdown is finished
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("countdown").innerHTML = "We Are LIVE!!!!!";
     }
-}, 1000);
+}
+
+// Update the countdown every second
+const x = setInterval(updateCountdown, 1000);
 
 // Open Modal
 function openModal(modalId) {
