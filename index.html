@@ -1,77 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nightclub - Coming Soon</title>
     <style>
-        /* Reset and basic styles */
-        * {
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #1a1a1a;
+            color: white;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-
-        body {
-            background: #111;
-            color: white;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            flex-direction: column;
             text-align: center;
         }
 
-        /* Neon Gradient Effect for Main Heading */
         h1 {
-            font-size: 4rem;
-            background: linear-gradient(90deg, #9b00ff, #00b6ff);
-            color: transparent;
-            background-clip: text;
-            animation: neon 1.5s ease-in-out infinite alternate;
+            font-size: 3em;
+            margin-top: 20px;
+            color: #fff;
+            text-shadow: 0 0 5px #ff1f90, 0 0 10px #33ccff, 0 0 15px #ff1f90;
         }
 
-        /* Neon Animation for Text */
-        @keyframes neon {
-            0% {
-                text-shadow: 0 0 5px #9b00ff, 0 0 10px #9b00ff, 0 0 20px #9b00ff, 0 0 40px #00b6ff, 0 0 60px #00b6ff;
-            }
-            100% {
-                text-shadow: 0 0 10px #9b00ff, 0 0 20px #9b00ff, 0 0 30px #9b00ff, 0 0 40px #00b6ff, 0 0 50px #00b6ff;
-            }
+        h3 {
+            font-size: 1.5em;
+            color: #ccc;
         }
 
-        /* Style for buttons */
+        /* Neon Button */
         .btn {
-            background-color: #ff007b;
-            color: white;
-            border: none;
+            display: inline-block;
             padding: 15px 30px;
-            font-size: 16px;
+            font-size: 1.2em;
+            background-color: #33ccff;
+            color: #fff;
+            border-radius: 25px;
             cursor: pointer;
-            margin: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(255, 0, 123, 0.6);
-            transition: all 0.3s ease;
+            text-decoration: none;
+            margin: 20px 10px;
+            position: relative;
+            transition: background-color 0.3s ease;
         }
 
         .btn:hover {
-            background-color: #ff4d91;
-            box-shadow: 0 0 20px rgba(255, 0, 123, 1);
+            background-color: #ff1f90;
         }
 
-        /* Countdown Style */
-        #countdown {
-            font-size: 2rem;
-            color: #00b6ff;
-            font-weight: bold;
-            margin: 20px 0;
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff1f90, #33ccff);
+            background-size: 200% 200%;
+            animation: neonAnimation 1.5s linear infinite;
+            border-radius: 25px;
+            z-index: -1;
         }
 
-        /* Modal (Popup) Styles */
+        @keyframes neonAnimation {
+            0% {
+                background-position: 200% 0;
+            }
+
+            50% {
+                background-position: -200% 0;
+            }
+
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        /* Modal Styles */
         .modal {
             display: none;
             position: fixed;
@@ -81,98 +85,234 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.7);
-            padding-top: 60px;
+            padding-top: 50px;
         }
 
         .modal-content {
-            background-color: #222;
-            margin: 5% auto;
-            padding: 20px;
-            border-radius: 10px;
-            width: 80%;
-            max-width: 600px;
+            background-color: #1a1a1a;
             color: white;
+            padding: 30px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 700px;
+            margin: 10% auto;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
 
         .modal-content h3 {
-            color: #00b6ff;
-            margin-bottom: 15px;
-        }
-
-        .modal-content p {
-            font-size: 1rem;
-            color: #ddd;
+            font-size: 2em;
         }
 
         .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 2em;
+            color: white;
             cursor: pointer;
         }
 
-        .close:hover,
-        .close:focus {
+        .roadmap-item {
+            margin-bottom: 30px;
+        }
+
+        .roadmap-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
             color: #fff;
-            text-decoration: none;
-            cursor: pointer;
         }
 
-        /* Animating the button hover */
-        @keyframes glowButton {
-            0% {
-                text-shadow: 0 0 10px rgba(255, 0, 123, 0.8), 0 0 20px rgba(255, 0, 123, 0.8), 0 0 30px rgba(255, 0, 123, 0.8);
-            }
-            100% {
-                text-shadow: 0 0 10px rgba(255, 0, 123, 1), 0 0 20px rgba(255, 0, 123, 1), 0 0 30px rgba(255, 0, 123, 1);
-            }
+        .progress-bar-container {
+            width: 100%;
+            background-color: #333;
+            height: 20px;
+            border-radius: 10px;
+            margin-bottom: 10px;
         }
 
-        .btn {
-            animation: glowButton 1.5s infinite alternate;
+        .progress-bar {
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, #ff1f90, #33ccff);
+            border-radius: 10px;
+            transition: width 2s ease-in-out;
+        }
+
+        .roadmap-item p {
+            font-size: 1em;
+            color: #ccc;
+        }
+
+        .roadmap-container {
+            padding: 20px;
+        }
+
+        .roadmap-title {
+            font-size: 2.5em;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .roadmap-description {
+            text-align: center;
+            font-size: 1.2em;
+            color: #ccc;
+            margin-bottom: 40px;
+        }
+
+        /* Countdown Timer */
+        .countdown {
+            font-size: 2em;
+            margin-top: 30px;
+            color: #33ccff;
+            text-shadow: 0 0 5px #ff1f90, 0 0 10px #33ccff, 0 0 15px #ff1f90;
         }
     </style>
 </head>
+
 <body>
+    <h1>Nightclub</h1>
+    <h3>Coming Soon</h3>
 
-    <h1>Nightclub - Coming Soon</h1>
-    <p>That app that can't be named for legal reasons... but better!</p>
+    <p class="countdown" id="countdown">00:00:00</p>
 
-    <div id="countdown"></div> <!-- Countdown element -->
-
-    <!-- Contact Us Button -->
-    <button class="btn" onclick="window.location.href='mailto:rvoinc@webname.com'">Contact Us</button>
-    
-    <!-- About Us Button -->
-    <button class="btn" onclick="openModal('aboutModal')">About Us</button>
-    
-    <!-- Roadmap Button -->
-    <button class="btn" onclick="openModal('roadmapModal')">Roadmap</button>
+    <div class="btn-container">
+        <a href="javascript:void(0)" class="btn" onclick="openModal('aboutModal')">About Us</a>
+        <a href="javascript:void(0)" class="btn" onclick="openModal('roadmapModal')">Roadmap</a>
+    </div>
 
     <!-- About Us Modal -->
-    <div id="aboutModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('aboutModal')">&times;</span>
-            <h3>About Us</h3>
-            <p>We’re building something better than what you've seen. Stay tuned as we aim to create a new platform to disrupt the way we interact online. Keep your eyes peeled for big updates!</p>
-        </div>
+<div id="aboutModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('aboutModal')">&times;</span>
+        <h3>About Us</h3>
+        <p>Welcome to the future of online interaction! At Nightclub, we are reimagining the way digital communication takes place. We believe the internet should be a place for connection, creativity, and innovation, and we’re building the next-generation platform to make that a reality.</p>
+        
+        <p>Our journey began with a vision to create a space where people could communicate in new, exciting ways. We wanted to break free from the constraints of current platforms and provide users with a modern experience that focuses on flexibility, privacy, and user empowerment. From our sleek and futuristic design to cutting-edge features, everything we do is aimed at enhancing your online social experience.</p>
+
+        <p>At Nightclub, we value the importance of community. Our platform is built to be inclusive, where every voice matters. Whether you're part of a gaming group, a hobbyist circle, or just looking to meet new people, our goal is to provide you with an environment that encourages healthy, meaningful interactions.</p>
+
+        <p>We're also focused on innovation. Our team is passionate about continuously improving the platform by listening to our users and integrating the latest technologies. We’re not just creating a platform; we’re creating a living, evolving space where new ideas thrive. From advanced moderation tools powered by AI to customizable features that allow users to personalize their experience, we are constantly pushing boundaries.</p>
+
+        <p>Nightclub is more than just an app—it’s a movement. A movement toward a better, more connected digital world. A world where every user can feel safe, express themselves freely, and build lasting relationships. Join us as we create something extraordinary. The best is yet to come!</p>
+
+        <p><strong>Our Values:</strong></p>
+        <ul>
+            <li><strong>Community First:</strong> We believe in building a supportive, inclusive, and safe space for everyone.</li>
+            <li><strong>Innovation:</strong> We're always looking for ways to improve and push the envelope of what's possible in digital communication.</li>
+            <li><strong>Privacy and Security:</strong> We take your privacy seriously, ensuring your data is safe and you’re in control of your information.</li>
+            <li><strong>Transparency:</strong> We believe in being open with our users about our goals, progress, and challenges.</li>
+        </ul>
+
+        <p>Thank you for being part of our journey. We’re excited to have you with us as we revolutionize the way we connect online.</p>
     </div>
+</div>
+
 
     <!-- Roadmap Modal -->
     <div id="roadmapModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('roadmapModal')">&times;</span>
             <h3>Project Roadmap</h3>
-            <ul>
-                <li><strong>Phase 1:</strong> Concept and design.</li>
-                <li><strong>Phase 2:</strong> MVP launch.</li>
-                <li><strong>Phase 3:</strong> User testing and feedback.</li>
-                <li><strong>Phase 4:</strong> Continuous improvements and updates.</li>
-            </ul>
+
+            <p>Our project is designed with continuous growth in mind, bringing new features and expansions as time progresses. Below is our current roadmap, but keep in mind, the journey never ends!</p>
+
+            <div class="roadmap-item">
+                <div class="roadmap-title">Phase 1: Launch</div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="phase1Progress"></div>
+                </div>
+                <p>We’re starting with the basics—getting our core platform up and running. This includes initial server setup, user registration, and basic UI design. We're setting up the foundation for something bigger!</p>
+            </div>
+
+            <div class="roadmap-item">
+                <div class="roadmap-title">Phase 2: Community & Engagement</div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="phase2Progress"></div>
+                </div>
+                <p>With the platform live, we'll shift focus to enhancing community features. Expect user profiles, chat rooms, role-based access, and user engagement tools to create a dynamic environment for communication.</p>
+            </div>
+
+            <div class="roadmap-item">
+                <div class="roadmap-title">Phase 3: Advanced Features</div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="phase3Progress"></div>
+                </div>
+                <p>We’re bringing the advanced tools to life, including our AI-powered moderation system, customizable chat themes, and unique server enhancements like invite codes and server visibility options.</p>
+            </div>
+
+            <div class="roadmap-item">
+                <div class="roadmap-title">Phase 4: Global Expansion</div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="phase4Progress"></div>
+                </div>
+                <p>With our foundation solid, we aim to scale and add international support, bringing new languages and broader accessibility to our platform. Expect server optimizations, multi-language chat areas, and enhanced user accessibility.</p>
+            </div>
+
+            <div class="roadmap-item">
+                <div class="roadmap-title">Phase 5: Full Feature Integration</div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="phase5Progress"></div>
+                </div>
+                <p>As we reach the final phase, expect all features to come together with integration for premium features, sponsored ads, global servers, and unique rewards. We’ll bring our community to new heights with tools designed to empower users and server owners alike.</p>
+            </div>
+
+            <div class="roadmap-item">
+                <div class="roadmap-title">Ever-Expanding Updates</div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="phase6Progress"></div>
+                </div>
+                <p>This project will continue to expand as new features are developed and user feedback is integrated. The journey is endless, and we’re committed to continuously evolving the platform with exciting features that will be unveiled in the future.</p>
+            </div>
         </div>
     </div>
 
+    <script>
+        // Modal functionality
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Countdown Timer
+        const endDate = new Date("2025-05-01T00:00:00Z");
+
+        function updateCountdown() {
+            const now = new Date();
+            const timeRemaining = endDate - now;
+
+            if (timeRemaining <= 0) {
+                document.getElementById("countdown").innerHTML = "The wait is over!";
+                return;
+            }
+
+            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = `${hours}:${minutes}:${seconds}`;
+        }
+
+        setInterval(updateCountdown, 1000);
+
+        // Roadmap Progress Bar
+        function updateProgress() {
+            document.getElementById("phase1Progress").style.width = "50%";
+            document.getElementById("phase2Progress").style.width = "30%";
+            document.getElementById("phase3Progress").style.width = "10%";
+            document.getElementById("phase4Progress").style.width = "0%";
+            document.getElementById("phase5Progress").style.width = "0%";
+            document.getElementById("phase6Progress").style.width = "0%";
+        }
+
+        window.onload = updateProgress;
+    </script>
+</body>
+
+</html>
     <!-- Link to external script.js -->
     <script src="script.js"></script>
 </body>
