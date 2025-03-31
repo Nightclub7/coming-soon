@@ -139,7 +139,6 @@
 
         .progress-bar {
             height: 100%;
-            width: 0;
             background: linear-gradient(90deg, #ff1f90, #33ccff);
             border-radius: 10px;
             transition: width 2s ease-in-out;
@@ -224,11 +223,6 @@
             max-height: 80%;
         }
 
-        /* Modal for Roadmap and About Us should scroll */
-        .modal-content {
-            display: block;
-        }
-
     </style>
 </head>
 
@@ -267,7 +261,7 @@
             <div class="roadmap-item">
                 <div class="roadmap-title">Phase 1: Launch</div>
                 <div class="progress-bar-container">
-                    <div class="progress-bar" id="phase1Progress"></div>
+                    <div class="progress-bar" id="phase1Progress" style="width: 25%;"></div>
                 </div>
                 <p>We’re starting with the basics—getting our core platform up and running. This includes initial server setup, user registration, and basic UI design. We're setting up the foundation for something bigger!</p>
             </div>
@@ -275,7 +269,7 @@
             <div class="roadmap-item">
                 <div class="roadmap-title">Phase 2: Community & Engagement</div>
                 <div class="progress-bar-container">
-                    <div class="progress-bar" id="phase2Progress"></div>
+                    <div class="progress-bar" id="phase2Progress" style="width: 50%;"></div>
                 </div>
                 <p>In this phase, we will focus on building a community-driven environment. Features like chat channels, user profiles, and customizable settings will be implemented.</p>
             </div>
@@ -283,23 +277,24 @@
             <div class="roadmap-item">
                 <div class="roadmap-title">Phase 3: AI-Powered Features</div>
                 <div class="progress-bar-container">
-                    <div class="progress-bar" id="phase3Progress"></div>
+                    <div class="progress-bar" id="phase3Progress" style="width: 75%;"></div>
                 </div>
                 <p>We will start introducing AI-powered moderation, personalized recommendations, and smart interactions that will improve the user experience.</p>
             </div>
 
             <div class="roadmap-item">
-                <div class="roadmap-title">Phase 4: Global Expansion</div>
+                <div class="roadmap-title">Phase 4: Full Platform Expansion</div>
                 <div class="progress-bar-container">
-                    <div class="progress-bar" id="phase4Progress"></div>
+                    <div class="progress-bar" id="phase4Progress" style="width: 99%;"></div>
                 </div>
-                <p>Expanding Nightclub globally with additional servers, languages, and region-specific features to make the platform more accessible and user-friendly.</p>
+                <p>By the final stage, we will have the complete platform ready. This will include full integration with mobile apps, advanced features, and scalability improvements.</p>
             </div>
+
         </div>
     </div>
 
     <!-- Contact Us Modal -->
-    <div id="contactUsModal" class="modal">
+    <div id="contactUsModal" class="contact-us-modal">
         <div class="contact-us-modal-content">
             <span class="close" onclick="closeModal('contactUsModal')">&times;</span>
             <h3>Contact Us</h3>
