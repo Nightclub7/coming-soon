@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon - Nightclub</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to bottom, #6a0dad, #00bfff);
+            font-family: 'Arial', sans-serif;
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            text-align: center;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: rgba(0, 0, 0, 0.8);
+            width: 80%;
+            max-width: 600px;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            background: linear-gradient(to right, #8e44ad, #3498db);
+            -webkit-background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            color: #ffffff;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .subphrase {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #ffffff;
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        .countdown {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ff7f50;
+            margin-top: 30px;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 1rem;
+            color: #dcdcdc;
+        }
+
+        .button-container {
+            margin-top: 30px;
+        }
+
+        .button {
+            background: linear-gradient(to right, #8e44ad, #3498db);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 8px;
+            margin: 10px;
+            position: relative;
+            overflow: hidden;
+            transition: 0.3s;
+            box-shadow: 0 0 10px #8e44ad, 0 0 20px #3498db, 0 0 30px #8e44ad;
+        }
+
+        .button:hover {
+            background: linear-gradient(to right, #3498db, #8e44ad);
+            box-shadow: 0 0 20px #8e44ad, 0 0 40px #3498db, 0 0 60px #8e44ad;
+            animation: neon-glow 1.5s infinite;
+        }
+
+        .button::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            animation: move-glow 2s infinite ease-in-out;
+            transform: translate(-50%, -50%);
+            opacity: 0.5;
+        }
+
+        @keyframes neon-glow {
+            0% {
+                box-shadow: 0 0 10px #8e44ad, 0 0 20px #3498db, 0 0 30px #8e44ad;
+            }
+            50% {
+                box-shadow: 0 0 20px #8e44ad, 0 0 40px #3498db, 0 0 60px #8e44ad;
+            }
+            100% {
+                box-shadow: 0 0 10px #8e44ad, 0 0 20px #3498db, 0 0 30px #8e44ad;
+            }
+        }
+
+        @keyframes move-glow {
+            0% {
+                transform: translate(-50%, -50%) scale(0.7);
+                opacity: 0.5;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(0.7);
+                opacity: 0.5;
+            }
+        }
+
+        .modal-content {
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .modal-header {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .modal-body {
+            font-size: 1rem;
+            color: #dcdcdc;
+        }
+
+        .modal-footer {
+            margin-top: 20px;
+            text-align: right;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>NIGHTCLUB</h1>
+        <h2>Coming Soon</h2>
+        
+        <!-- Subphrase -->
+        <div class="subphrase">Like that app that can't be named for legal reasons... but better!</div>
+
+        <!-- Countdown Timer -->
+        <div id="countdown" class="countdown">Launching in: <span id="timer"></span></div>
+
+        <div class="button-container">
+            <button class="button" onclick="openModal('about')">About Us</button>
+            <button class="button" onclick="openModal('contact')">Contact Us</button>
+            <button class="button" onclick="openModal('roadmap')">Roadmap</button>
+        </div>
+
+        <div class="footer">Stay tuned for the grand opening!</div>
+    </div>
+
+    <!-- Modals -->
+    <!-- About Us Modal -->
+    <div id="aboutModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>About Us</h2>
+            </div>
+            <div class="modal-body">
+                <p>Welcome to Nightclub! We're creating a unique and interactive social platform where communities can come together, communicate, and have fun. Our goal is to bring people from all walks of life into a vibrant digital space where connections are made, conversations flow, and creativity shines.</p>
+                <p>Our platform is designed for the future, focusing on providing users with modern tools, sleek design, and a sense of belonging. Whether you're here to meet new people, join interest-based groups, or find support, Nightclub will be your place to connect.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="button" onclick="closeModal('about')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Us Modal -->
+    <div id="contactModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Contact Us</h2>
+            </div>
+            <div class="modal-body">
+                <p>If you have any questions or would like to get in touch with us, please email us at:</p>
+                <p><strong>rvoinc@webname.com</strong></p>
+            </div>
+            <div class="modal-footer">
+                <button class="button" onclick="closeModal('contact')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Roadmap Modal -->
+    <div id="roadmapModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Roadmap</h2>
+            </div>
+            <div class="modal-body">
+                <p><strong>Phase 1 - Launch:</strong> We're building the core features and functionality for a smooth, engaging experience.</p>
+                <p><strong>Phase 2 - Early Access:</strong> Opening up our platform for users to join, create groups, and chat.</p>
+                <p><strong>Phase 3 - Full Release:</strong> Bringing more features, better support, and optimized performance for all users.</p>
+                <p><strong>Phase 4 - Expansion:</strong> Continuing to grow with new tools, interactive elements, and more.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="button" onclick="closeModal('roadmap')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date().getTime() + (365 * 24 * 60 * 60 * 1000); // 1 year from now
+
+        // Update the countdown every 1 second
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("timer").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("timer").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+
+        function openModal(type) {
+            document.getElementById(type + 'Modal').style.display = 'block';
+        }
+
+        function closeModal(type) {
+            document.getElementById(type + 'Modal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
