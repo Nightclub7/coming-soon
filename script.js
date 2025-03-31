@@ -29,8 +29,14 @@ function closeModal(modalId) {
     modal.style.display = "none";
 }
 
-// Set roadmap progress
-document.getElementById('phase1Progress').style.width = '25%';
-document.getElementById('phase2Progress').style.width = '50%';
-document.getElementById('phase3Progress').style.width = '75%';
-document.getElementById('phase4Progress').style.width = '99%';
+// Function to update progress bars dynamically
+function updateProgressBars() {
+    // Update progress bars for different phases
+    document.getElementById('phase1Progress').style.width = "25%";
+    document.getElementById('phase2Progress').style.width = "50%";
+    document.getElementById('phase3Progress').style.width = "75%";
+    document.getElementById('phase4Progress').style.width = "99%";
+}
+
+// Call updateProgressBars function when the page loads
+window.onload = updateProgressBars;
