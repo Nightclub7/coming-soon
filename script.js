@@ -30,7 +30,7 @@ function closeModal(modalId) {
 }
 
 // Set roadmap progress
-document.getElementById('phase1Progress').style.width = '40%';
-document.getElementById('phase2Progress').style.width = '20%';
-document.getElementById('phase3Progress').style.width = '10%';
-document.getElementById('phase4Progress').style.width = '0%';
+document.getElementById('phase1Progress').style.width = '25%';
+document.getElementById('phase2Progress').style.width = '50%';
+document.getElementById('phase3Progress').style.width = '75%';
+document.getElementById('phase4Progress').style.width = '99%';
