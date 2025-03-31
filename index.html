@@ -14,6 +14,8 @@
             padding: 0;
             box-sizing: border-box;
             text-align: center;
+            overflow-y: auto;
+            height: 100vh;
         }
 
         h1 {
@@ -86,6 +88,7 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.7);
             padding-top: 50px;
+            overflow-y: auto; /* Allow scrolling */
         }
 
         .modal-content {
@@ -212,6 +215,20 @@
             overflow-wrap: break-word;
             word-break: break-word;
         }
+
+        /* Center Modal to the screen and prevent overflow */
+        .modal-content {
+            max-width: 700px;
+            margin: 10% auto;
+            overflow-y: auto;
+            max-height: 80%;
+        }
+
+        /* Modal for Roadmap and About Us should scroll */
+        .modal-content {
+            display: block;
+        }
+
     </style>
 </head>
 
@@ -295,8 +312,5 @@
 
     <script src="script.js"></script>
 </body>
-
-</html>
-
 
 </html>
