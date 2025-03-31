@@ -1,21 +1,37 @@
-// Countdown Timer Setup
-const countdownDate = new Date("January 1, 2026 00:00:00").getTime();
-const countdownElement = document.getElementById("countdown");
+// Set the date we're counting down to
+var countDownDate = new Date("December 31, 2025 23:59:59").getTime();
 
-const interval = setInterval(function() {
-    const now = new Date().getTime();
-    const distance = countdownDate - now;
+// Update the countdown every 1 second
+var x = setInterval(function() {
 
-    // Time calculations
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    // Get the current date and time
+    var now = new Date().getTime();
 
-    countdownElement.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+    // Find the distance between now and the count down date
+    var distance = countDownDate - now;
 
+    // Time calculations for days, hours, minutes, and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Output the result in the element with id="countdown"
+    document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+    + minutes + "m " + seconds + "s ";
+
+    // If the countdown is finished, write some text
     if (distance < 0) {
-        clearInterval(interval);
-        countdownElement.innerHTML = "We are live!";
+        clearInterval(x);
+        document.getElementById("countdown").innerHTML = "EXPIRED";
     }
 }, 1000);
+
+// Functions to open and close modals
+function openModal(modalId) {
+    document.getElementById(modalId).style.display = "block";
+}
+
+function closeModal(modalId) {
+    document.getElementById(modalId).style.display = "none";
+}
