@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // These values can be dynamically updated based on your platform's progress
     const progressData = {
-        devPhase: 10, // Percentage for Development Phase
+        devPhase: 0, // Percentage for Development Phase
         phase1: 25,   // Percentage for phase 1
         phase2: 50,   // Percentage for phase 2
         phase3: 75,   // Percentage for phase 3
