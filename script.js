@@ -1,7 +1,7 @@
 // Countdown Timer
 function updateCountdown() {
     const countdownElement = document.getElementById("countdown");
-    const targetDate = new Date("2025-12-31T00:00:00").getTime(); // Set the target date for countdown
+    const targetDate = new Date("2026-12-31T00:00:00").getTime(); // Set the target date for countdown
 
     // Display "Loading countdown..." while the countdown is being calculated
     countdownElement.innerHTML = "Loading countdown...";
