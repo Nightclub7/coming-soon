@@ -58,15 +58,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const phase2Progress = document.getElementById("phase2Progress");
     const phase3Progress = document.getElementById("phase3Progress");
     const phase4Progress = document.getElementById("phase4Progress");
+    const devPhaseProgress = document.getElementById("devPhaseProgress");
 
     // These values can be dynamically updated based on your platform's progress
     const progressData = {
-        phase1: 25, // Percentage for phase 1
-        phase2: 50, // Percentage for phase 2
-        phase3: 75, // Percentage for phase 3
-        phase4: 99   // Percentage for phase 4 
+        devPhase: 10, // Percentage for Development Phase
+        phase1: 25,   // Percentage for phase 1
+        phase2: 50,   // Percentage for phase 2
+        phase3: 75,   // Percentage for phase 3
+        phase4: 99    // Percentage for phase 4 
     };
 
+    devPhaseProgress.style.width = `${progressData.devPhase}%`;
     phase1Progress.style.width = `${progressData.phase1}%`;
     phase2Progress.style.width = `${progressData.phase2}%`;
     phase3Progress.style.width = `${progressData.phase3}%`;
