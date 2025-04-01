@@ -249,46 +249,58 @@
         </div>
     </div>
 
-    <!-- Roadmap Modal -->
-    <div id="roadmapModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('roadmapModal')">&times;</span>
-            <h3>Project Roadmap</h3>
-            <p>Our project is designed with continuous growth in mind, bringing new features and expansions as time progresses. Below is our current roadmap, but keep in mind, the journey never ends!</p>
+    <!-- Roadmap Section -->
+<section id="roadmap" class="roadmap-section">
+    <h2>Our Roadmap</h2>
+    <p>Follow our journey as we move through each phase of development!</p>
 
-            <div class="roadmap-item">
-                <div class="roadmap-title">Phase 1: Launch</div>
-                <div class="progress-bar-container">
-                    <div class="progress-bar" id="phase1Progress" style="width: 25%;"></div>
-                </div>
-                <p>We are getting ready for the launch! Initial features include a sleek interface, advanced moderation tools, and community-building tools.</p>
+    <div class="roadmap-phases">
+        <!-- Development Phase -->
+        <div class="phase" id="devPhase">
+            <h3>Development Phase</h3>
+            <p>We are getting stuff ready to start up the user experience.</p>
+            <div class="progress-bar-container">
+                <div id="devPhaseProgress" class="progress-bar"></div>
             </div>
+        </div>
 
-            <div class="roadmap-item">
-                <div class="roadmap-title">Phase 2: Feature Expansion</div>
-                <div class="progress-bar-container">
-                    <div class="progress-bar" id="phase2Progress" style="width: 50%;"></div>
-                </div>
-                <p>New features, like server management tools, community-driven events, and interactive experiences, will be rolled out during this phase.</p>
+        <!-- Phase 1 -->
+        <div class="phase" id="phase1">
+            <h3>Phase 1: Initial Development</h3>
+            <p>Kickstart the platform's foundational systems and features.</p>
+            <div class="progress-bar-container">
+                <div id="phase1Progress" class="progress-bar"></div>
             </div>
+        </div>
 
-            <div class="roadmap-item">
-                <div class="roadmap-title">Phase 3: Platform Growth</div>
-                <div class="progress-bar-container">
-                    <div class="progress-bar" id="phase3Progress" style="width: 75%;"></div>
-                </div>
-                <p>At this stage, we'll focus on expanding our user base, refining the platform, and exploring new ways to create value for our users.</p>
+        <!-- Phase 2 -->
+        <div class="phase" id="phase2">
+            <h3>Phase 2: User Interface Design</h3>
+            <p>Design and develop the user interface to make the platform accessible and user-friendly.</p>
+            <div class="progress-bar-container">
+                <div id="phase2Progress" class="progress-bar"></div>
             </div>
+        </div>
 
-            <div class="roadmap-item">
-                <div class="roadmap-title">Phase 4: Global Reach</div>
-                <div class="progress-bar-container">
-                    <div class="progress-bar" id="phase4Progress" style="width: 99%;"></div>
-                </div>
-                <p>We aim to reach users worldwide with a localized experience and advanced features that cater to diverse communities.</p>
+        <!-- Phase 3 -->
+        <div class="phase" id="phase3">
+            <h3>Phase 3: Features and Testing</h3>
+            <p>Adding additional features and conducting rigorous testing.</p>
+            <div class="progress-bar-container">
+                <div id="phase3Progress" class="progress-bar"></div>
+            </div>
+        </div>
+
+        <!-- Phase 4 -->
+        <div class="phase" id="phase4">
+            <h3>Phase 4: Official Launch</h3>
+            <p>The platform will officially launch with full functionality!</p>
+            <div class="progress-bar-container">
+                <div id="phase4Progress" class="progress-bar"></div>
             </div>
         </div>
     </div>
+</section>
 
     <!-- Contact Us Modal -->
     <div id="contactUsModal" class="contact-us-modal">
