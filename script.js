@@ -29,12 +29,16 @@ updateCountdown();
 // Modal Functions
 function openModal(modalId) {
     const modal = document.getElementById(modalId);
-    modal.style.display = "block";
+    if (modal) {
+        modal.style.display = "block";
+    }
 }
 
 function closeModal(modalId) {
     const modal = document.getElementById(modalId);
-    modal.style.display = "none";
+    if (modal) {
+        modal.style.display = "none";
+    }
 }
 
 // Modal Close when clicking outside of modal
@@ -50,12 +54,6 @@ window.onclick = function(event) {
 // Roadmap Progress Bars
 document.addEventListener('DOMContentLoaded', function() {
     // Example of dynamic progress bar updates for phases
-    const phase1Progress = document.getElementById("phase1Progress");
-    const phase2Progress = document.getElementById("phase2Progress");
-    const phase3Progress = document.getElementById("phase3Progress");
-    const phase4Progress = document.getElementById("phase4Progress");
-
-    // These values can be dynamically updated based on your platform's progress
     const progressData = {
         phase1: 25, // Percentage for phase 1
         phase2: 50, // Percentage for phase 2
@@ -63,8 +61,11 @@ document.addEventListener('DOMContentLoaded', function() {
         phase4: 0   // Percentage for phase 4
     };
 
-    phase1Progress.style.width = `${progressData.phase1}%`;
-    phase2Progress.style.width = `${progressData.phase2}%`;
-    phase3Progress.style.width = `${progressData.phase3}%`;
-    phase4Progress.style.width = `${progressData.phase4}%`;
+    // Dynamically update progress bars for each phase
+    Object.keys(progressData).forEach(phase => {
+        const progressBar = document.getElementById(`${phase}Progress`);
+        if (progressBar) {
+            progressBar.style.width = `${progressData[phase]}%`;
+        }
+    });
 });
