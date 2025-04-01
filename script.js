@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
         phase1: 25, // Percentage for phase 1
         phase2: 50, // Percentage for phase 2
         phase3: 75, // Percentage for phase 3
-        phase4: 99   // Percentage for phase 4
+        phase4: 99,   // Percentage for phase 4
     };
 
     // Dynamically update progress bars for each phase
